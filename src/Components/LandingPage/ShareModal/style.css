@@ -1,0 +1,43 @@
+.close-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.share-icon {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 10px;
+}
+
+.close {
+  color: var(--white);
+  background-color: var(--gridlight);
+}
+
+.css-4k5ajt {
+  border: 4px solid var(--white);
+  background-color: var(--share);
+  border-radius: 25px;
+}
+
+.css-1f7l4m0 {
+  border: 3px solid;
+  border-radius: 25px;
+  border-color: var(--white);
+  background-color: var(--gridlight);
+}
+
+@media only screen and (max-width: 500px) {
+  .share-icon {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 10px;
+  }
+  .css-4k5ajt {
+    width: 325px !important;
+    padding: 15px !important;
+  }
+}

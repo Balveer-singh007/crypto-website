@@ -1,0 +1,45 @@
+/* .grid-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.list-table {
+  width: 90%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+} */
+
+.grid-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 2rem;
+}
+.list-table {
+  width: 85%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-flex {
+  margin-top: 1.3rem;
+}
+
+@media only screen and (max-width: 1150px) {
+  .list-table {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .tablePanel {
+    padding: 24px 5px !important;
+  }
+}

@@ -1,0 +1,26 @@
+.footer-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-crypto {
+  align-self: center;
+  margin-bottom: 0rem;
+  font-size: 1.4rem;
+}
+.footer-para {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 450px) {
+  .footer-crypto {
+    font-size: 1rem;
+  }
+  .footer-para {
+    margin-left: 1rem;
+    font-size: 0.6rem;
+  }
+}
