@@ -8,13 +8,12 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { hasBeenAdded } from "../../../Functions/hasBeenAdded";
 import { convertNumbers } from "../../../Functions/convertNumbers";
-import { Link } from "react-router-dom";
 import "./style.css";
 
 function List({ coin, isWatchlistPage }) {
   const [added, setAdded] = useState(hasBeenAdded(coin.id));
   return (
-    <Link to={`/coin/${coin.id}`}>
+    <a href={`/coin/${coin.id}`}>
       <tr
         className="list-row"
         style={{ display: isWatchlistPage && !added && "none" }}
@@ -157,7 +156,7 @@ function List({ coin, isWatchlistPage }) {
           </IconButton>
         </td>
       </tr>
-    </Link>
+    </a>
   );
 }
 

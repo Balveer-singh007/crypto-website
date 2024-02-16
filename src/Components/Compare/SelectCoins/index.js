@@ -32,7 +32,9 @@ const SelectCoins = ({ crypto1, crypto2, handleCoinChange }) => {
 
   return (
     <div className="coin-flex">
-      <p className="reduce" style={{ color: "var(--white)" }}>Crypto 1</p>
+      <p className="reduce" style={{ color: "var(--white)" }}>
+        Crypto 1
+      </p>
       <Select
         sx={styles}
         value={crypto1}
@@ -47,7 +49,9 @@ const SelectCoins = ({ crypto1, crypto2, handleCoinChange }) => {
             </MenuItem>
           ))}
       </Select>
-      <p className="reduce" style={{ color: "var(--white)" }}>Crypto 2</p>
+      <p className="reduce" style={{ color: "var(--white)" }}>
+        Crypto 2
+      </p>
       <Select
         sx={styles}
         value={crypto2}

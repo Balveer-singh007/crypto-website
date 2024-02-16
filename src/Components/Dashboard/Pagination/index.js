@@ -3,14 +3,14 @@ import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import "./style.css";
 
-export default function PaginationComponent({ page, handlePageChange }) {
+export default function PaginationComponent({ pageNumber, handleChange }) {
   return (
     <div className="pagination-component">
-      <Typography>Page: {page}</Typography>
+      <Typography>Page: {pageNumber}</Typography>
       <Pagination
         count={10}
-        page={page}
-        onChange={(event, value) => handlePageChange(event, value)}
+        page={pageNumber}
+        onChange={handleChange}
         sx={{
           color: "var(--white)",
           "& .Mui-selected": {

@@ -41,7 +41,7 @@ const style = {
 
 function ShareModal({ open, onClose }) {
   const source = "Crypto Tracker";
-  const currentPageUrl = "https://crypto-tracker-clone.vercel.app/";
+  const currentPageUrl = window.location.href;
   const title = "CryptoSphere: Explore, Analyze, Invest";
   const description =
     "Explore the world of cryptocurrencies with Crypto Tracker. Real-time market data, insightful analytics, and user-friendly tools at your fingertips. Stay informed, make smart investment decisions, and ride the crypto wave with confidence.Elevate your financial journey - explore the future with us.";
@@ -131,3 +131,5 @@ function ShareModal({ open, onClose }) {
 }
 
 export default ShareModal;
+
+// https://crypto-tracker-clone.vercel.app/

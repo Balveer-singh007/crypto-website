@@ -2,7 +2,7 @@ import React from "react";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import "./style.css";
 
-function Search({ search, onSearchChange }) {
+function Search({ search, onChange }) {
   return (
     <div className="search-flex">
       <SearchRoundedIcon />
@@ -10,7 +10,7 @@ function Search({ search, onSearchChange }) {
         placeholder="Search"
         type="text"
         value={search}
-        onChange={(e) => onSearchChange(e)}
+        onChange={onChange}
       />
     </div>
   );

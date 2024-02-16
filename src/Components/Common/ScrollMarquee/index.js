@@ -23,7 +23,7 @@ const ScrollMarquee = () => {
 
   return (
     <Marquee className="mark" pauseOnHover={true}>
-      {allCoins.length > 0 ? (
+      {allCoins.length ? (
         allCoins.map((coin, ind) => (
           <div className="content coin-price " key={ind}>
             <Link

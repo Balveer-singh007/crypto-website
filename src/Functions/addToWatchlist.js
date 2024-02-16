@@ -12,8 +12,6 @@ export const addToWatchlist = (id) => {
           id.slice(0, 1).toUpperCase() + id.slice(1)
         } - Added To The Watchlist!`
       );
-    } else {
-      toast.warn("Coin is already in the Watchlist!");
     }
   } else {
     let arr = JSON.stringify([id]);

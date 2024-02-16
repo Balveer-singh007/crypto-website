@@ -24,3 +24,9 @@
 .search-flex input:focus {
   outline: none;
 }
+
+@media screen and (max-width: 450px) {
+  .search-flex {
+    width: 65%;
+  }
+}

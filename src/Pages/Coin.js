@@ -12,7 +12,6 @@ import TogglePriceType from "../Components/Coin/PriceType";
 import SelectDays from "../Components/Coin/SelectDays";
 import { settingChartData } from "../Functions/settingChartData";
 import Footer from "../Components/Common/Footer";
-import CustomCursor from "../Components/Common/CustomCursor";
 
 function CoinPage() {
   const { id } = useParams();
@@ -33,7 +32,7 @@ function CoinPage() {
     if (data) {
       coinObject(setCoinData, data);
       const prices = await getCoinPrices(id, days, priceType);
-      if (prices.length > 0) {
+      if (prices) {
         console.log("hyyyyyy");
         settingChartData(setChartData, prices);
         setIsLoading(false);
@@ -45,7 +44,7 @@ function CoinPage() {
     setIsLoading(true);
     setDays(event.target.value);
     const prices = await getCoinPrices(id, event.target.value, priceType);
-    if (prices.length > 0) {
+    if (prices) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
     }
@@ -55,7 +54,7 @@ function CoinPage() {
     setIsLoading(true);
     setPriceType(newType);
     const prices = await getCoinPrices(id, days, newType);
-    if (prices.length > 0) {
+    if (prices) {
       settingChartData(setChartData, prices);
       setIsLoading(false);
     }
@@ -82,7 +81,6 @@ function CoinPage() {
           <CoinInfo heading={coinData.name} desc={coinData.desc} />
         </div>
       )}
-      <CustomCursor />
       <Footer />
     </div>
   );

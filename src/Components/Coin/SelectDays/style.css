@@ -1,8 +1,19 @@
 .select-days {
   margin: 1rem;
   padding: 0.5rem 0.5rem;
-
   gap: 1rem;
   justify-content: flex-start;
   align-items: center;
+}
+
+@media only screen and (max-width: 425px) {
+  .price-responsive {
+    font-size: 0.6rem;
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  .select-days {
+    gap: 0.5rem !important;
+  }
 }

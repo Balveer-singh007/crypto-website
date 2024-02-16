@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import "./style.css";
 
-function SelectDays({ days, handleDaysChange, noPTag }) {
+function SelectDays({ days, handleDaysChange, noText }) {
   return (
     <div
       className=".select-days "
@@ -16,7 +16,7 @@ function SelectDays({ days, handleDaysChange, noPTag }) {
         paddingBottom: "0.5rem",
       }}
     >
-      {!noPTag && <p>Price Change In</p>}
+      {!noText && <p className="price-responsive">Price Change In</p>}
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"

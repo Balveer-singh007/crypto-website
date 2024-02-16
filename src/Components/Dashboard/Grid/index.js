@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
-import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import { Tooltip } from "@mui/material";
 import { removeFromWatchlist } from "../../../Functions/removeFromWatchlist";
@@ -27,7 +26,7 @@ function Grid({ coin, isWatchlistPage }) {
   };
 
   return (
-    <Link to={`/coin/${coin.id}`}>
+    <a href={`/coin/${coin.id}`}>
       <div
         className={`grid-container ${
           coin.price_change_percentage_24h < 0 && "grid-container-red"
@@ -105,7 +104,7 @@ function Grid({ coin, isWatchlistPage }) {
           </p>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }
 

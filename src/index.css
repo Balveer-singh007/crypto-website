@@ -122,10 +122,20 @@ a {
     align-items: center;
     width: 98%;
   }
+  .grey-wrapper {
+    width: 85%;
+  }
 }
 @media only screen and (max-width: 465px) {
   .coin-days-flex {
     width: 98%;
+  }
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding-right: 26px;
+  }
+  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding-right: 26px;
+    font-size: 0.6rem;
   }
 }
 
@@ -133,8 +143,24 @@ a {
   .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
     padding: 9.5px 10px;
   }
+}
+
+@media only screen and (max-width: 425px) {
+  .grey-wrapper {
+    width: 80%;
+  }
+  .coin-days-flex {
+    width: 96%;
+  }
+}
+@media only screen and (max-width: 385px) {
+  .grey-wrapper {
+    width: 88%;
+  }
+  .coin-days-flex {
+    width: 98%;
+  }
   .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
-    padding-right: 26px;
-    font-size: 0.8rem;
+    padding-right: 24px;
   }
 }

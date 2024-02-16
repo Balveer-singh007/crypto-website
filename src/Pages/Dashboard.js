@@ -7,44 +7,46 @@ import BackToTop from "../Components/Common/BackToTop";
 import { get100Coins } from "../Functions/get100Coins";
 import Search from "../Components/Dashboard/Search";
 import Footer from "../Components/Common/Footer";
-import CustomCursor from "../Components/Common/CustomCursor";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
-  const [page, setPage] = useState("1");
+  const [pageNumber, setPageNumber] = useState("1");
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [search, setSearch] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const onSearchChange = (e) => {
+  const onChange = (e) => {
     setSearch(e.target.value);
   };
 
   const handlePageChange = (event, value) => {
-    setPage(value);
+    setPageNumber(value);
     let prevIndex = (value - 1) * 10;
     console.log(prevIndex);
     setPaginatedCoins(coins.slice(prevIndex, prevIndex + 10));
   };
 
-  let filteredCoins = coins.filter(
-    (item) =>
+  let filteredCoins = coins.filter((item) => {
+    if (
       item.name.toLowerCase().includes(search.toLowerCase()) ||
       item.symbol.toLowerCase().includes(search.toLowerCase())
-  );
+    )
+      return coins;
+  });
 
   useEffect(() => {
     getData();
   }, []);
 
   const getData = async () => {
-    const myCoins = await get100Coins();
-    if (myCoins) {
-      setCoins(myCoins);
-      setPaginatedCoins(myCoins.slice(0, 10));
-      setIsLoading(false);
+    setLoading(true);
+    const data = await get100Coins();
+    if (data) {
+      setCoins(data);
+      setPaginatedCoins(data.slice(0, 10));
+      setLoading(false);
     }
   };
 
@@ -52,21 +54,23 @@ function DashboardPage() {
     <div>
       <Header />
       <BackToTop />
-      {isLoading ? (
+      {loading ? (
         <Loader />
       ) : (
         <div>
-          <Search search={search} onSearchChange={onSearchChange} />
-          <TabsComponents coins={search ? filteredCoins : paginatedCoins} />
+          <Search search={search} onChange={onChange} />
+          <TabsComponents
+            coins={search ? filteredCoins : paginatedCoins}
+            setSearch={setSearch}
+          />
           {!search && (
             <PaginationComponent
-              page={page}
-              handlePageChange={handlePageChange}
+              pageNumber={parseInt(pageNumber)}
+              handleChange={handlePageChange}
             />
           )}
         </div>
       )}
-      <CustomCursor />
       <Footer />
       <ToastContainer />
     </div>

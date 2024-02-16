@@ -4,7 +4,6 @@ import Header from "../Components/Common/Header";
 import Loader from "../Components/Common/Loader";
 import { get100Coins } from "../Functions/get100Coins";
 import TabsComponent from "../Components/Dashboard/Tabs";
-import CustomCursor from "../Components/Common/CustomCursor";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,7 +16,6 @@ function WatchlistPage() {
     getData();
   }, []);
 
-  console.log(myWatchlist);
   const getData = async () => {
     setLoading(true);
     const allCoins = await get100Coins();
@@ -50,7 +48,6 @@ function WatchlistPage() {
             <div style={{ height: "95vh" }}>
               <Header />
               <TabsComponent coins={myWatchlist} isWatchlistPage={true} />
-              <CustomCursor />
             </div>
           )}
         </div>

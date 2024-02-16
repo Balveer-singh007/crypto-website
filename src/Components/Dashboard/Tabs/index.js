@@ -8,12 +8,13 @@ import { ThemeProvider } from "@emotion/react";
 import Grid from "../Grid";
 import "./style.css";
 import List from "../List";
+import Button from "../../Common/Button";
 
-export default function TabsComponent({ coins, isWatchlistPage }) {
-  const [value, setValue] = useState("grid");
+export default function TabsComponent({ coins, isWatchlistPage, setSearch }) {
+  const [tabvalue, setTabValue] = useState("grid");
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabValue(newValue);
   };
 
   const style = {
@@ -24,6 +25,7 @@ export default function TabsComponent({ coins, isWatchlistPage }) {
     fontFamily: "Inter",
     textTransform: "capitalize",
   };
+
   const theme = createTheme({
     palette: {
       primary: {
@@ -31,9 +33,10 @@ export default function TabsComponent({ coins, isWatchlistPage }) {
       },
     },
   });
+
   return (
     <ThemeProvider theme={theme}>
-      <TabContext value={value}>
+      <TabContext value={tabvalue}>
         <div className="tab-flex">
           <TabList onChange={handleChange} variant="fullWidth">
             <Tab label="Grid" value="grid" sx={style} />
@@ -42,20 +45,48 @@ export default function TabsComponent({ coins, isWatchlistPage }) {
         </div>
         <TabPanel value="grid">
           <div className="grid-flex">
-            {coins.map((coin, ind) => {
-              return (
-                <Grid coin={coin} key={ind} isWatchlistPage={isWatchlistPage} />
-              );
-            })}
+            {coins.length === 0 ? (
+              <div>
+                <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
+                  No Items Found
+                </h1>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    text={"Clear Search"}
+                    onClick={(e) => {
+                      setSearch("");
+                    }}
+                  />
+                </div>
+              </div>
+            ) : (
+              coins?.map((coin, i) => (
+                <Grid coin={coin} key={i} isWatchlistPage={isWatchlistPage} />
+              ))
+            )}
           </div>
         </TabPanel>
         <TabPanel className="tablePanel" value="list">
           <table className="list-table">
-            {coins.map((coin, ind) => {
-              return (
-                <List coin={coin} key={ind} isWatchlistPage={isWatchlistPage} />
-              );
-            })}
+            {coins.length === 0 ? (
+              <div>
+                <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
+                  No Items Found
+                </h1>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    text={"Clear Search"}
+                    onClick={(e) => {
+                      setSearch("");
+                    }}
+                  />
+                </div>
+              </div>
+            ) : (
+              coins?.map((coin, i) => (
+                <List coin={coin} key={i} isWatchlistPage={isWatchlistPage} />
+              ))
+            )}
           </table>
         </TabPanel>
       </TabContext>

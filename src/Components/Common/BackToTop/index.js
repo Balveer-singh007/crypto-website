@@ -12,13 +12,14 @@ const BackToTop = () => {
   };
 
   function scrollFunction() {
+    console.log("inside");
     if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
+      document.body.scrollTop > 300 ||
+      document.documentElement.scrollTop > 300
     ) {
       mybutton.style.display = "flex";
     } else {
-      mybutton.style.display = "none";
+      if (null) mybutton.style.display = "none";
     }
   }
 

@@ -12,7 +12,6 @@ import CoinInfo from "../Components/Coin/CoinInfo";
 import LineChart from "../Components/Coin/LineChart";
 import TogglePriceType from "../Components/Coin/PriceType";
 import Footer from "../Components/Common/Footer";
-import CustomCursor from "../Components/Common/CustomCursor";
 
 const ComparePage = () => {
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -60,10 +59,7 @@ const ComparePage = () => {
       const prices2 = await getCoinPrices(crypto2, days, priceType);
       settingChartData(setChartData, prices1, prices2);
       console.log(prices1, prices2);
-      if (prices1.length > 0 && prices2.length > 0) {
-        console.log("Both prices fetched", prices1, prices2);
-        setIsLoading(false);
-      }
+      setIsLoading(false);
     }
   }
 
@@ -75,10 +71,7 @@ const ComparePage = () => {
       coinObject(setCrypto2Data, data);
       const prices1 = await getCoinPrices(crypto1, days, priceType);
       const prices2 = await getCoinPrices(crypto2, days, priceType);
-      if (prices1.length > 0 && prices2.length > 0) {
-        console.log("Both prices fetched", prices1, prices2);
-        setIsLoading(false);
-      }
+      setIsLoading(false);
     } else {
       setCrypto1(e.target.value);
       const data = await getCoinData(e.target.value);
@@ -129,7 +122,6 @@ const ComparePage = () => {
           <CoinInfo heading={crypto2Data.name} desc={crypto2Data.desc} />
         </>
       )}
-      <CustomCursor />
       <Footer />
     </div>
   );
