@@ -137,6 +137,11 @@ a {
     padding-right: 26px;
     font-size: 0.6rem;
   }
+  .coin-days-flex {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -169,9 +174,4 @@ a {
 }
 
 @media only screen and (max-width: 330px) {
-  .coin-days-flex {
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
 }

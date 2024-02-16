@@ -6,11 +6,15 @@ import { get100Coins } from "../Functions/get100Coins";
 import TabsComponent from "../Components/Dashboard/Tabs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import ErrorComponent from "../Components/Common/Error";
 
 function WatchlistPage() {
   const coins = JSON.parse(localStorage.getItem("watchlist"));
   const [myWatchlist, setMyWatchlist] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -18,18 +22,27 @@ function WatchlistPage() {
 
   const getData = async () => {
     setLoading(true);
-    const allCoins = await get100Coins();
-    if (coins) {
-      console.log(coins, "coins ");
-      setMyWatchlist(allCoins.filter((item) => coins.includes(item.id)));
+    try {
+      const allCoins = await get100Coins();
+      if (coins) {
+        console.log(coins, "coins ");
+        setMyWatchlist(allCoins.filter((item) => coins.includes(item.id)));
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
+      setLoading(false);
+      setHasError(true);
+      navigate("/error");
     }
-    setLoading(false);
   };
   return (
     <div>
       <ToastContainer />
       {loading || !coins ? (
         <Loader />
+      ) : hasError ? (
+        <ErrorComponent />
       ) : (
         <div style={{ minHeight: "90vh" }}>
           {myWatchlist?.length === 0 || !coins ? (

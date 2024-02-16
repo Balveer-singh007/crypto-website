@@ -12,6 +12,8 @@ import CoinInfo from "../Components/Coin/CoinInfo";
 import LineChart from "../Components/Coin/LineChart";
 import TogglePriceType from "../Components/Coin/PriceType";
 import Footer from "../Components/Common/Footer";
+import { useNavigate } from "react-router-dom";
+import ErrorComponent from "../Components/Common/Error";
 
 const ComparePage = () => {
   const [crypto1, setCrypto1] = useState("bitcoin");
@@ -22,6 +24,8 @@ const ComparePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [priceType, setPriceType] = useState("prices");
   const [chartData, setChartData] = useState({});
+  const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
 
   async function handleDaysChange(e) {
     setIsLoading(true);
@@ -46,20 +50,27 @@ const ComparePage = () => {
 
   async function getData() {
     setIsLoading(true);
-    const data1 = await getCoinData(crypto1);
-    const data2 = await getCoinData(crypto2);
-    if (data1) {
-      coinObject(setCrypto1Data, data1);
-    }
-    if (data2) {
-      coinObject(setCrypto2Data, data2);
-    }
-    if (data1 && data2) {
-      const prices1 = await getCoinPrices(crypto1, days, priceType);
-      const prices2 = await getCoinPrices(crypto2, days, priceType);
-      settingChartData(setChartData, prices1, prices2);
-      console.log(prices1, prices2);
+    try {
+      const data1 = await getCoinData(crypto1);
+      const data2 = await getCoinData(crypto2);
+      if (data1) {
+        coinObject(setCrypto1Data, data1);
+      }
+      if (data2) {
+        coinObject(setCrypto2Data, data2);
+      }
+      if (data1 && data2) {
+        const prices1 = await getCoinPrices(crypto1, days, priceType);
+        const prices2 = await getCoinPrices(crypto2, days, priceType);
+        settingChartData(setChartData, prices1, prices2);
+        console.log(prices1, prices2);
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
       setIsLoading(false);
+      setHasError(true);
+      navigate("/error");
     }
   }
 
@@ -87,6 +98,8 @@ const ComparePage = () => {
       <Header />
       {isLoading ? (
         <Loader />
+      ) : hasError ? (
+        <ErrorComponent />
       ) : (
         <>
           <div className="coin-days-flex">

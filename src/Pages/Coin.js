@@ -12,14 +12,18 @@ import TogglePriceType from "../Components/Coin/PriceType";
 import SelectDays from "../Components/Coin/SelectDays";
 import { settingChartData } from "../Functions/settingChartData";
 import Footer from "../Components/Common/Footer";
+import { useNavigate } from "react-router-dom";
+import ErrorComponent from "../Components/Common/Error";
 
 function CoinPage() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [coinData, setCoinData] = useState();
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState(14);
   const [chartData, setChartData] = useState({});
   const [priceType, setPriceType] = useState("prices");
+  const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
@@ -28,15 +32,23 @@ function CoinPage() {
   }, [id]);
 
   async function getData() {
-    const data = await getCoinData(id);
-    if (data) {
-      coinObject(setCoinData, data);
-      const prices = await getCoinPrices(id, days, priceType);
-      if (prices) {
-        console.log("hyyyyyy");
-        settingChartData(setChartData, prices);
-        setIsLoading(false);
+    setIsLoading(true);
+    try {
+      const data = await getCoinData(id);
+      if (data) {
+        coinObject(setCoinData, data);
+        const prices = await getCoinPrices(id, days, priceType);
+        if (prices) {
+          console.log("hyyyyyy");
+          settingChartData(setChartData, prices);
+          setIsLoading(false);
+        }
       }
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
+      setIsLoading(false);
+      setHasError(true);
+      navigate("/error");
     }
   }
 
@@ -65,6 +77,8 @@ function CoinPage() {
       <Header />
       {isLoading ? (
         <Loader />
+      ) : hasError ? (
+        <ErrorComponent />
       ) : (
         <div>
           <div className="grey-wrapper">

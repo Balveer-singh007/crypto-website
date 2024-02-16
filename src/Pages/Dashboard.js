@@ -9,6 +9,8 @@ import Search from "../Components/Dashboard/Search";
 import Footer from "../Components/Common/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import ErrorComponent from "../Components/Common/Error";
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
@@ -16,6 +18,8 @@ function DashboardPage() {
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setSearch(e.target.value);
@@ -42,11 +46,18 @@ function DashboardPage() {
 
   const getData = async () => {
     setLoading(true);
-    const data = await get100Coins();
-    if (data) {
-      setCoins(data);
-      setPaginatedCoins(data.slice(0, 10));
+    try {
+      const data = await get100Coins();
+      if (data) {
+        setCoins(data);
+        setPaginatedCoins(data.slice(0, 10));
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Error fetching coin data:", error);
       setLoading(false);
+      setHasError(true);
+      navigate("/error");
     }
   };
 
@@ -56,6 +67,8 @@ function DashboardPage() {
       <BackToTop />
       {loading ? (
         <Loader />
+      ) : hasError ? (
+        <ErrorComponent />
       ) : (
         <div>
           <Search search={search} onChange={onChange} />
