@@ -18,7 +18,7 @@ const ComparePage = () => {
   const [crypto2, setCrypto2] = useState("ethereum");
   const [crypto1Data, setCrypto1Data] = useState({});
   const [crypto2Data, setCrypto2Data] = useState({});
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState(14);
   const [isLoading, setIsLoading] = useState(true);
   const [priceType, setPriceType] = useState("prices");
   const [chartData, setChartData] = useState({});

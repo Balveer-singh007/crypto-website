@@ -152,6 +152,9 @@ a {
   .coin-days-flex {
     width: 96%;
   }
+  .grey-wrapper {
+    margin-left: 0.8rem;
+  }
 }
 @media only screen and (max-width: 385px) {
   .grey-wrapper {
@@ -162,5 +165,13 @@ a {
   }
   .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
     padding-right: 24px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .coin-days-flex {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
