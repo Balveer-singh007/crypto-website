@@ -1,12 +1,12 @@
 import React from "react";
 import ErrorComponent from "../Components/Common/Error";
-import Footer from "../Components/Common/Footer";
+import ErrorFooter from "../Components/Common/ErrorFooter";
 
 const ErrorPage = () => {
   return (
     <div>
       <ErrorComponent />
-      <Footer />
+      <ErrorFooter />
     </div>
   );
 };

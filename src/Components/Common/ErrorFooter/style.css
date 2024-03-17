@@ -1,0 +1,31 @@
+.footer-error-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
+  width: 100%;
+}
+.footer-error-crypto {
+  align-self: center;
+  margin-bottom: 0rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+.footer-error-para {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #fff;
+  text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  .footer-crypto {
+    font-size: 1rem;
+  }
+  .footer-para {
+    margin-left: 1rem;
+    font-size: 0.6rem;
+  }
+}

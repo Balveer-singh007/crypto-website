@@ -12,7 +12,6 @@ const BackToTop = () => {
   };
 
   function scrollFunction() {
-    console.log("inside");
     if (
       document.body.scrollTop > 300 ||
       document.documentElement.scrollTop > 300
@@ -22,8 +21,6 @@ const BackToTop = () => {
       if (null) mybutton.style.display = "none";
     }
   }
-
-  // When the user clicks on the button, scroll to the top of the document
 
   function topFunction() {
     document.body.scrollTop = 0;

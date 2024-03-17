@@ -7,6 +7,7 @@ import TabsComponent from "../Components/Dashboard/Tabs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ErrorComponent from "../Components/Common/Error";
 
 function WatchlistPage() {
@@ -52,9 +53,12 @@ function WatchlistPage() {
                 No Items in the Watchlist
               </h1>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <a href="/dashboard">
-                  <Button text={"Dashboard"} />
-                </a>
+                <Link to="/dashboard">
+                  <Button
+                    text={"Dashboard"}
+                    onClick={() => console.log("btn Clicked")}
+                  />
+                </Link>
               </div>
             </div>
           ) : (

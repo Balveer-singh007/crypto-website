@@ -41,7 +41,7 @@ function Grid({ coin, isWatchlistPage }) {
               <p className="coin-name">{coin.name}</p>
             </div>
           </Tooltip>
-          {/* ccc */}
+
           <IconButton className="ico" onClick={handleWatchlistClick}>
             {added ? (
               <StarRoundedIcon
@@ -59,7 +59,6 @@ function Grid({ coin, isWatchlistPage }) {
               />
             )}
           </IconButton>
-          {/* cccc */}
         </div>
         <Tooltip title="Current Price Change in 24hr in Percentage">
           {coin.price_change_percentage_24h > 0 ? (

@@ -17,7 +17,7 @@ function Intro() {
           className="track-crypto-heading"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          duration={{ duration: 1, type: "smooth", delay: 1.5 }}
+          duration={{ duration: 0.5, delay: 0.1 }}
         >
           Track Crypto
         </motion.span>
@@ -25,7 +25,7 @@ function Intro() {
           className="real-time-heading"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          duration={{ duration: 1.5, type: "smooth", delay: 1.5 }}
+          duration={{ duration: 0.5, delay: 0.2 }}
         >
           Real Time.
         </motion.h1>

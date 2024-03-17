@@ -1,25 +1,3 @@
-/* .coin-info-desc {
-  padding-bottom: 1rem;
-  cursor: pointer;
-}
-
-.coin-info-heading {
-  padding-top: 1rem;
-}
-
-.coin-info-desc a {
-  color: var(--white);
-  text-decoration: underline;
-}
-
-.coin-info-desc a:hover {
-  color: var(--blue);
-}
-
-.short-desc {
-  padding-bottom: 1.5rem;
-} */
-
 .coin-desc-heading {
   margin: 0px;
   font-size: 1.2rem;

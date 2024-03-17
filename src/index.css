@@ -27,6 +27,7 @@
   --search: rgba(213, 211, 211, 0.957);
   --input: #111;
   --share: #ebe8e8;
+  --error: #fff;
 }
 .dark-theme {
   --white: #fff;
@@ -43,6 +44,7 @@
   --search: #fff;
   --input: #111;
   --share: #1b1b1b;
+  --error: #fff;
 }
 
 html {
@@ -51,7 +53,6 @@ html {
 
 body {
   margin: 0;
-  /* padding: 0; */
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -171,7 +172,4 @@ a {
   .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
     padding-right: 24px;
   }
-}
-
-@media only screen and (max-width: 330px) {
 }
